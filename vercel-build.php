@@ -1,9 +1,15 @@
 <?php
 echo "🚀 Starting Vercel Build Process...\n";
 
-// Run composer commands
+// Check if composer.phar exists, if not download it
+if (!file_exists('composer.phar')) {
+    echo "📥 Downloading Composer...\n";
+    passthru('curl -sS https://getcomposer.org/installer | php');
+}
+
+// Run composer commands using composer.phar
 echo "📦 Installing Composer dependencies...\n";
-passthru('composer install --no-dev --optimize-autoloader');
+passthru('php composer.phar install --no-dev --optimize-autoloader');
 
 echo "🔧 Running Laravel optimizations...\n";
 passthru('php artisan config:cache');
