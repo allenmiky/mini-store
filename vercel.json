@@ -11,6 +11,5 @@
     }
   ],
   "outputDirectory": "public",
-  "buildCommand": "php vercel-build.php",
-  "installCommand": "curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev --prefer-dist --optimize-autoloader"
+  "buildCommand": "php vercel-build.php"
 }
