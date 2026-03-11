@@ -1,28 +1,22 @@
 #!/bin/bash
-echo "🚀 Deploying Laravel Application..."
+echo "🚀 Starting Vercel Build..."
 
-# 1. Pull latest code
-git pull origin main
+# Download Composer if not exists
+if [ ! -f "composer.phar" ]; then
+    echo "📥 Downloading Composer..."
+    curl -sS https://getcomposer.org/installer | php
+fi
 
-# 2. Install dependencies
-composer install --no-dev --optimize-autoloader
-npm ci --production
+# Install dependencies
+echo "📦 Installing dependencies..."
+php composer.phar install --no-dev --optimize-autoloader
 
-# 3. Build assets
-npm run build
+# Laravel optimizations
+if [ -f "artisan" ]; then
+    echo "🔧 Caching Laravel config..."
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+fi
 
-# 4. Clear caches
-php artisan optimize:clear
-
-# 5. Cache everything
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
-# 6. Run migrations
-php artisan migrate --force
-
-# 7. Set permissions
-chmod -R 775 storage bootstrap/cache
-
-echo "✅ Deployment complete!"
+echo "✅ Build complete!"

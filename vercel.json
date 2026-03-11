@@ -11,5 +11,5 @@
     }
   ],
   "outputDirectory": "public",
-  "buildCommand": "php vercel-build.php"
+  "buildCommand": "bash deploy.sh"
 }
