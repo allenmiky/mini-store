@@ -89,16 +89,16 @@ For development:
 npm run dev
 ```
 
-For a production build:
-
-```bash
-npm run build
-```
-
 ### 7. Start the Laravel server
 
 ```bash
 php artisan serve
+```
+
+For a production build:
+
+```bash
+npm run build
 ```
 
 Open the app in your browser:
