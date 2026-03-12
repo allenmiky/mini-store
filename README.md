@@ -1,66 +1,91 @@
 <p align="center">
-  <img src="https://i.ibb.co/Q75LPQsb/logo.png" alt="Mini Store Logo" width="140">
+  <img src="https://i.ibb.co/Q75LPQsb/logo.png" alt="Flownex Store Logo" width="140">
 </p>
 
-# Mini Store
+# Flownex Store
 
-Mini Store ek simple **Laravel Blade practice store project** hai.  
-Yeh production ecommerce app nahi hai. Is project ka purpose Laravel basics practice karna hai, jaise:
+Flownex Store is a simple Laravel Blade practice store project.
 
-- Blade views
-- routing
+This is not a production ecommerce application. It is a learning project built to practice:
+
+- Laravel routing
 - controllers
-- cart session handling
+- Blade views
+- session-based cart flow
 - checkout flow
 - order pages
-- basic admin/product management
+- basic admin CRUD structure
 
-## Project Type
+## Project Overview
 
-Yeh sirf ek **Laravel Blade practice store** hai jisme frontend Blade templates ke through render hota hai.  
-Isme simple store flow implement kiya gaya hai:
+This project is a small Laravel Blade store that demonstrates a basic ecommerce-style flow using server-rendered views.
 
-- products listing
+Main flow:
+
+- product listing
 - product detail page
 - cart
 - checkout
 - order success page
-- basic orders history
+- user order history
 
 ## Tech Stack
 
 - PHP 8.2
 - Laravel 12
-- Blade Templates
-- MySQL
+- Blade
+- MySQL / SQLite
 - Vite
-- Bootstrap / frontend utility classes used in views
 
-## How To Start
+## Application Key
 
-### 1. Project clone/open karo
+Yes, this project does include Laravel application key generation support.
+
+I checked the project files and found:
+
+- `.env.example` contains `APP_KEY=`
+- `config/app.php` uses `env('APP_KEY')`
+- `composer.json` already includes `php artisan key:generate` in setup-related scripts
+
+Relevant files:
+
+- [composer.json](c:\xampp\htdocs\mini-store\composer.json)
+- [.env.example](c:\xampp\htdocs\mini-store\.env.example)
+- [config/app.php](c:\xampp\htdocs\mini-store\config\app.php)
+
+So after creating your `.env` file, you should run:
+
+```bash
+php artisan key:generate
+```
+
+## Getting Started
+
+### 1. Open the project
 
 ```bash
 cd c:\xampp\htdocs\mini-store
 ```
 
-### 2. Dependencies install karo
+### 2. Install dependencies
 
 ```bash
 composer install
 npm install
 ```
 
-### 3. Environment file setup karo
+### 3. Create the environment file
 
 ```bash
 copy .env.example .env
 php artisan key:generate
 ```
 
-### 4. Database configure karo
+### 4. Configure the database
 
-`.env` file me apni MySQL database details set karo:
+Update your `.env` file with your database credentials.
+
+Example for MySQL:
 
 ```env
 DB_CONNECTION=mysql
@@ -71,34 +96,34 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Migrations aur seeders run karo
+### 5. Run migrations and seeders
 
 ```bash
 php artisan migrate
 php artisan db:seed
 ```
 
-### 6. Frontend build/run karo
+### 6. Start the frontend build tool
 
-Development ke liye:
+For development:
 
 ```bash
 npm run dev
 ```
 
-Production build ke liye:
+For a production build:
 
 ```bash
 npm run build
 ```
 
-### 7. Laravel server start karo
+### 7. Start the Laravel server
 
 ```bash
 php artisan serve
 ```
 
-Phir browser me open karo:
+Open the app in your browser:
 
 ```txt
 http://127.0.0.1:8000
@@ -111,6 +136,7 @@ php artisan serve
 php artisan migrate
 php artisan db:seed
 php artisan route:list
+php artisan key:generate
 npm run dev
 npm run build
 ```
@@ -119,65 +145,63 @@ npm run build
 
 ```txt
 mini-store/
-├── app/
-│   ├── Http/Controllers/     # Store, cart, checkout, orders, admin controllers
-│   └── Models/               # User, Product, Category, Order, OrderItem
-├── database/
-│   ├── migrations/           # Database table structure
-│   ├── seeders/              # Demo/admin seed data
-│   └── factories/            # Model factories
-├── public/                   # Public entry files and assets
-├── resources/
-│   ├── views/                # Blade templates
-│   │   ├── store/            # Store pages
-│   │   ├── cart/             # Cart page
-│   │   ├── checkout/         # Checkout and success page
-│   │   ├── orders/           # Orders history and details
-│   │   └── components/       # Reusable Blade components
-│   ├── css/                  # Styles
-│   └── js/                   # Frontend scripts
-├── routes/
-│   ├── web.php               # Main web routes
-│   └── auth.php              # Authentication routes
-├── storage/                  # Logs, cache, framework files
-├── config/                   # Laravel config files
-├── artisan                   # Laravel CLI entry point
-├── composer.json             # PHP dependencies
-├── package.json              # Node dependencies
-├── vite.config.js            # Vite config
-└── README.md
+|-- app/
+|   |-- Http/Controllers/     # Store, cart, checkout, orders, and admin controllers
+|   `-- Models/               # User, Product, Category, Order, OrderItem
+|-- config/                   # Laravel configuration files
+|-- database/
+|   |-- factories/            # Model factories
+|   |-- migrations/           # Database schema files
+|   `-- seeders/              # Seed data
+|-- public/                   # Public assets and entry point
+|-- resources/
+|   |-- js/                   # Frontend scripts
+|   |-- css/                  # Styles
+|   `-- views/                # Blade templates
+|       |-- cart/
+|       |-- checkout/
+|       |-- components/
+|       |-- orders/
+|       `-- store/
+|-- routes/
+|   |-- auth.php
+|   `-- web.php
+|-- storage/                  # Logs, cache, and framework files
+|-- artisan
+|-- composer.json
+|-- package.json
+|-- vite.config.js
+`-- README.md
 ```
 
 ## Main Features
 
 - home/store page
-- category based browsing
+- category-based product browsing
 - product details page
 - session cart
-- coupon apply flow
+- coupon support
 - checkout form
 - order placement
 - order success page
-- authenticated user orders page
+- authenticated user order history
 - basic admin routes for categories and products
 
 ## Notes
 
-- Yeh project learning/practice ke liye bana hua hai.
-- Cart session based hai.
-- Checkout flow basic implementation hai.
-- Payment integrations real gateway based nahi hain.
-- Is project ko Laravel Blade structure samajhne ke liye use kiya ja sakta hai.
+- This project is mainly for Laravel Blade practice.
+- The cart is session-based.
+- The checkout system is basic.
+- Payment handling is mock/basic and not a full real-world gateway integration.
+- This project is useful for learning Laravel MVC structure and Blade rendering.
 
-## Admin Seeder
+## Seeder Note
 
-Agar admin user se related seeder configured hai, to database seed ke baad admin login use kar sakte ho.  
-Seeder files check karo:
+If admin seeding is configured, check:
 
 - `database/seeders/AdminUserSeeder.php`
 - `database/seeders/DatabaseSeeder.php`
 
 ## Summary
 
-Mini Store ek small Laravel Blade practice project hai jo ecommerce-like flow ko simple tareeqe se demonstrate karta hai.  
-Yeh project Laravel routing, controllers, Blade, sessions, migrations, aur CRUD concepts practice karne ke liye useful hai.
+Flownex Store is a small Laravel Blade practice project built to demonstrate a basic online store workflow using Laravel's server-rendered stack.
