@@ -37,28 +37,6 @@ Main flow:
 - MySQL / SQLite
 - Vite
 
-## Application Key
-
-Yes, this project does include Laravel application key generation support.
-
-I checked the project files and found:
-
-- `.env.example` contains `APP_KEY=`
-- `config/app.php` uses `env('APP_KEY')`
-- `composer.json` already includes `php artisan key:generate` in setup-related scripts
-
-Relevant files:
-
-- [composer.json](c:\xampp\htdocs\mini-store\composer.json)
-- [.env.example](c:\xampp\htdocs\mini-store\.env.example)
-- [config/app.php](c:\xampp\htdocs\mini-store\config\app.php)
-
-So after creating your `.env` file, you should run:
-
-```bash
-php artisan key:generate
-```
-
 ## Getting Started
 
 ### 1. Open the project
