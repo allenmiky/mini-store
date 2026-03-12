@@ -10,7 +10,7 @@ class PageController extends Controller
     // Home page show karega
     public function home()
     {
-        $storeName = "Mini Store";
+        $storeName = "FlownexStore";
         $categories = ['Electronics', 'Clothing', 'Books'];
         
         // View ko data bhejna

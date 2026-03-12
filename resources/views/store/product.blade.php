@@ -65,6 +65,13 @@
     </div>
 </div>
 
+<!-- Description -->
+
+                <div class="mb-4 mt-79">
+                    <h5>Description:</h5>
+                    <p class="text-muted">{{ $product->description ?? 'No description available.' }}</p>
+                </div>
+
 @if(isset($relatedProducts) && $relatedProducts->count() > 0)
 <div class="row mt-5">
     <h3 class="mb-4">Related Products</h3>
@@ -88,13 +95,6 @@
     @endforeach
 </div>
 @endif
-
-
-   
-                <div class="mb-4 mt-79">
-                    <h5>Description:</h5>
-                    <p class="text-muted">{{ $product->description ?? 'No description available.' }}</p>
-                </div>
 
 @push('scripts')
 <script>

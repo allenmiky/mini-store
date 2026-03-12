@@ -1,11 +1,11 @@
 
 
-<?php $__env->startSection('title', 'Home - Mini Store'); ?>
+<?php $__env->startSection('title', 'Home - FlownexStore'); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="bg-light p-5 rounded-3 mb-4">
     <div class="container py-4">
-        <h1 class="display-4">Welcome to Mini Store! 🛍️</h1>
+        <h1 class="display-4">Welcome to Flownex Store! 🛍️</h1>
         <p class="lead">Your one-stop shop for amazing products at best prices.</p>
         <hr class="my-4">
         <p>Shop from hundreds of products with fast delivery.</p>
