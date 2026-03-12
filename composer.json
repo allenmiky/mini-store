@@ -68,6 +68,11 @@
         ],
         "vercel-install": "composer install --no-dev --optimize-autoloader",
         "vercel-build": "@php artisan config:cache && @php artisan route:cache && @php artisan view:cache",
+        "vercel": [
+            "@php artisan config:cache",
+            "@php artisan route:cache",
+            "@php artisan view:cache"
+        ],
 
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"

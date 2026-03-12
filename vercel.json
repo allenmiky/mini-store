@@ -1,5 +1,4 @@
 {
-  "installCommand": "php vercel-build.php",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.1"
@@ -11,6 +10,5 @@
       "dest": "/api/index.php"
     }
   ],
-  "outputDirectory": "public",
-  "buildCommand": "php artisan config:cache && php artisan route:cache && php artisan view:cache"
+  "outputDirectory": "public"
 }
